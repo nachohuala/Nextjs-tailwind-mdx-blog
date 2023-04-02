@@ -1,5 +1,5 @@
-import Hello from "./posts/hello.mdx"
-import { postsFileName,postsPath } from "../utils/mdxUtils"
+import Hello from "../posts/hello.mdx"
+import {postsPath} from "../utils/mdxUtils"
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
@@ -23,7 +23,7 @@ const getPostMetadata = () => {
   return post
 }
 
-export default function page() {
+export default function HomePage() {
   console.log(getPostMetadata());
   return (
     <section className="py-24">
