@@ -13,7 +13,7 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   experimental: {
     appDir: true,
-    mdxRs: true
+    mdxRs: true,
   },
   images: {
     domains: ['github.com', 'lh3.googleusercontent.com']

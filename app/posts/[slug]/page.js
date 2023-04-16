@@ -2,9 +2,12 @@ import { postsPath } from "../../../utils/mdxUtils"
 import fs from "fs";
 import path from "path"
 import matter from "gray-matter"
-import Markdown from "markdown-to-jsx";
+import dynamic from "next/dynamic"
 
-
+const MarkdownContent = dynamic(
+    () => import('../../../components/MarkdownContent'),
+    { ssr: false }
+)
 
 // getStaticProps en NextJS 13
 const getPostContent =  async (slug) => {
@@ -21,10 +24,11 @@ const PostPage = async (props) => {
     const content = await getPostContent(slug)
     return (
 
-        <div>
-            <Markdown>
+        <div className="px-4">
+            <title></title>
+            <MarkdownContent>
             {content}
-            </Markdown>
+            </MarkdownContent>
         </div>
     );
 }
