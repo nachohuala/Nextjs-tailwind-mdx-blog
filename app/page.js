@@ -7,6 +7,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
+
 const getPostMetadata = () => {
   const files = fs.readdirSync(postsPath);
   const markdownPosts = files.filter((file)=>file.endsWith(".mdx"))
@@ -26,13 +27,16 @@ const getPostMetadata = () => {
   return post
 }
 
+// CARD COMPETENCES
+//https://tailwindcomponents.com/component/skills-card
+
 export default function HomePage() {
   //console.log(getPostMetadata());
   return (
 
-    <div className="flex flex-col items-center justify-center">
+    <div className=" flex flex-col items-center justify-center">
     {/* HERO */}
-    <main className="mt-16 lg:mt-48 px-2">
+    <main className="mt-16 lg:mt-36 px-2">
       {/* CONTAINER */}
       <div className="flex flex-col lg:grid lg:grid-cols-2 xl:items-center h-full justify-center">
         {/* SM  IMAGE */}
@@ -42,11 +46,21 @@ export default function HomePage() {
         {/* INFO */}
         <div className='flex lg:col-span-1  lg:text-3xl lg:ml-10'>
           <div className='flex flex-col gap-12 h-full mx-auto items-center justify-center'>
-            <h1 className='text-white text-6xl lg:text-8xl font-bebas font-bold rounded-2xl '>&#128075; DATA ANALYST </h1>
-            <p className='text-[#97AFDC] text-md md:text-base xl:text-xl 2xl:text-2xl text-center lg:text-start lg:ml-20'>Soy Ignacio Huala y quiero ayudarte a tomar decisiones <b><u>impulsadas por datos</u></b>. Chile📍</p>
-            {/* BUTTONS SECIONT*/}
+            <div className='w-full text-white text-6xl lg:text-8xl font-bebas font-bold rounded-2xl text-start'> 
+            <div className="wrapper flex justify-center lg:jutify-start lg:ml-16">
+    <div className="static-txt flex items-center">I'm a</div>
+    <ul className="dynamic-txts">
+      <li><span>YouTuber</span></li>
+      <li><span>Designer</span></li>
+      <li><span>Developer</span></li>
+      <li><span>Freelancer</span></li>
+    </ul>
+             </div>
+            </div>
+            <p className='animate__swing text-white text-md md:text-base xl:text-xl 2xl:text-2xl text-center lg:text-start lg:ml-20'>Soy Ignacio Huala y quiero ayudarte a tomar decisiones <b><u>impulsadas por datos</u></b>. Chile📍</p>
+            {/* BUTTONS SECTION*/}
             <div className="flex flex-col">
-                        {/* GLOWING BUTTON*/}
+            {/* GLOWING BUTTON*/}
             <div className='flex flex-col gap-6 items-center  mx-auto mt-4 md:flex-row lg:gap-20 '>
               <div className="grid gap-8  justify-center">
                 <div className="relative">
@@ -109,7 +123,7 @@ export default function HomePage() {
             </Link>
     </div>
     {/* ABOUT ME */}
-    <section className="bg-white dark:bg-gray-900 mt-16" >
+    <section className="bg-white dark:bg-gray-900 my-16" >
         <div className="container px-6 py-10 mx-auto">
             <h1 className="text-3xl font-semibold text-gray-800 capitalize lg:text-4xl dark:text-white">From the blog</h1>
 
