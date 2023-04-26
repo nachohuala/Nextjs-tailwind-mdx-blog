@@ -1,5 +1,7 @@
 import avatar from "../public/webImages/avatar.png"
 import {postsPath} from "../utils/mdxUtils"
+import getPostMetadata from "@/utils/utils"
+
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -8,30 +10,11 @@ import path from "path";
 import matter from "gray-matter";
 
 
-const getPostMetadata = () => {
-  const files = fs.readdirSync(postsPath);
-  const markdownPosts = files.filter((file)=>file.endsWith(".mdx"))
-  // Obtener metadatos de cada archivo
-  const post = markdownPosts.map((filename)=>{
-    const fileContents = fs.readFileSync(path.join(postsPath,filename),"utf8")
-    const matterResult = matter(fileContents)
-    return {
-      title: matterResult.data.title,
-      date: matterResult.data.date,
-      slug: filename.replace(".mdx",""),
-      tags: matterResult.data.tags,
-      description: matterResult.data.description,
-      author:matterResult.data.author,
-    }
-  })
-  return post
-}
-
 // CARD COMPETENCES
 //https://tailwindcomponents.com/component/skills-card
 
 export default function HomePage() {
-  //console.log(getPostMetadata());
+
   return (
 
     <div className=" flex flex-col items-center justify-center">
@@ -48,12 +31,12 @@ export default function HomePage() {
           <div className='flex flex-col gap-12 h-full mx-auto items-center justify-center'>
             <div className='w-full text-white text-6xl lg:text-8xl font-bebas font-bold rounded-2xl text-start'> 
             <div className="wrapper flex justify-center lg:jutify-start lg:ml-16">
-    <div className="static-txt flex items-center">I'm a</div>
+    <div className="static-txt flex items-center">Soy</div>
     <ul className="dynamic-txts">
-      <li><span>YouTuber</span></li>
-      <li><span>Designer</span></li>
-      <li><span>Developer</span></li>
+      <li><span>Nacho Huala</span></li>
+      <li><span>Data Analyst</span></li>
       <li><span>Freelancer</span></li>
+      <li><span>Programador</span></li>
     </ul>
              </div>
             </div>

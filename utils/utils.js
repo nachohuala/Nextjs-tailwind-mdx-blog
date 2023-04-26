@@ -12,12 +12,14 @@ async function getPostMetadata(){
     const fileContents = fs.readFileSync(path.join(postsPath,filename),"utf8")
     const matterResult = matter(fileContents)
     return {
+      id: matterResult.data.id,
       title: matterResult.data.title,
       date: matterResult.data.date,
       slug: filename.replace(".mdx",""),
       tags: matterResult.data.tags,
       description: matterResult.data.description,
       author:matterResult.data.author,
+      bannerURL:matterResult.data.bannerURL
     }
   })
   return post
